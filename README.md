@@ -139,11 +139,11 @@ chmod +x uninstall.sh
 
 ## 👨‍💻 Autor
 
-**Luiz Gustavo Lobo Simões**  
+**Luiz Gustavo Lobo Simões** vulgo **lgl5** 
 Gestor de Redes, Eterno prata no CS e entusiasta no mundo dev  
 🔗 [LinkedIn](https://www.linkedin.com/in/lgl5)
 
-> 💡 O código Python inicial do MakeTeam foi gerado com apoio do ChatGPT (OpenAI), e posteriormente adaptado, testado e integrado ao ambiente de produção por Luiz Gustavo.
+> 💡 O código Python inicial do MakeTeam foi gerado com apoio do ChatGPT (OpenAI), e posteriormente adaptado, testado e integrado ao ambiente de produção por lgl5.
 
 
 ---
