@@ -64,10 +64,11 @@ Categoria: Counter-Strike 2
 ├─ [MIX 1] - LOBBY
 ├─ [MIX 1] - EQUIPE 1
 ├─ [MIX 1] - EQUIPE 2
+├─ FILA DE ESPERA
 ├─ [MIX 2] - LOBBY
 ├─ [MIX 2] - EQUIPE 1
-├─ [MIX 2] - EQUIPE 2
-└─ FILA DE ESPERA
+└─ [MIX 2] - EQUIPE 2
+
 ```
 
 ---
