@@ -1,15 +1,5 @@
 ### 🔄 Versão 3.0.0 - 2024-07-15
 
-#### 🚀 Funcionalidades
-
-- Suporte para dois MIXs (`mix1` e `mix2`)
-- Criação e organização automática de canais de voz
-- Sorteio de equipes e movimentação entre canais
-- Comando de ajuda com todos os comandos disponíveis
-- Instalação automatizada com suporte a `.env` e `systemd`
-
----
-
 ![Logo MakeTeam](./maketeam-logo.png)
 
 # MakeTeam Bot - CS2 Discord
@@ -25,11 +15,11 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 
 ## 🎯 Funcionalidades
 
-- Sorteio automático de equipes (até 5x5 com fila de espera)
-- Movimentação automática entre canais de voz
-- Criação e estruturação de canais organizados em uma categoria específica
-- Comando `!comandos` integrado para exibir as funcionalidades disponíveis
-- Suporte a execução contínua via `systemd` com configuração por `.env`
+- Sorteio automático de equipes (até 5x5 com fila de espera);
+- Movimentação automática entre canais de voz;
+- Criação e estruturação de canais organizados em uma categoria específica;
+- Comando `!comandos` integrado para exibir as funcionalidades disponíveis;
+- Suporte a execução contínua via `systemd` com configuração por `.env`.
 
 ---
 
