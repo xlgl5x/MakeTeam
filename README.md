@@ -49,6 +49,8 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 As dependências (`discord.py`, `python-dotenv`) são instaladas automaticamente pelo script `install.sh`.  
 **Você não precisa se preocupar com um `requirements.txt`.**
 
+> ✅ Testado com sucesso em ambiente Debian 11 (bullseye) rodando em Raspberry Pi 4 (8 GB, ARMv8 - aarch64)
+
 ---
 
 ## 📁 Estrutura Recomendada no Discord
