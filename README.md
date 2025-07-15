@@ -1,13 +1,12 @@
-### 🔄 Versão 2.6.24 - 2024-07-08
+### 🔄 Versão 3.0.0 - 2024-07-15
 
-#### 🚀 Funcionalidades adicionadas
-**Tipo:** Minor
+#### 🚀 Funcionalidades
 
 - Suporte para dois MIXs (`mix1` e `mix2`)
-- Comando `!make update` para criar/ajustar canais automaticamente
-- Melhorias no tratamento de erros (comandos inválidos)
-- Mensagens mais claras no embed de ajuda (`!comandos`)
-- Instalação automatizada via `install.sh` e suporte completo a `.env`
+- Criação e organização automática de canais de voz
+- Sorteio de equipes e movimentação entre canais
+- Comando de ajuda com todos os comandos disponíveis
+- Instalação automatizada com suporte a `.env` e `systemd`
 
 ---
 
@@ -16,18 +15,17 @@
 ## 🔗 Adicionar o bot ao seu servidor
 [Clique aqui para convidar o bot](https://discord.com/oauth2/authorize?client_id=1085339903967121480&permissions=16788496&integration_type=0&scope=bot)
 
-
-Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, separando jogadores em equipes e gerenciando canais de voz.
+Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, separando jogadores em equipes e gerenciando canais de voz com comandos simples e diretos.
 
 ---
 
 ## 🎯 Funcionalidades
 
-- Sorteio automático de equipes (até 5x5 + fila de espera)
+- Sorteio automático de equipes (até 5x5 com fila de espera)
 - Movimentação automática entre canais de voz
-- Comando para criar ou atualizar canais do Discord
-- Lista de comandos integrada (`!comandos`)
-- Serviço `systemd` com `.env` configurável para uso persistente
+- Criação e estruturação de canais organizados em uma categoria específica
+- Comando `!comandos` integrado para exibir as funcionalidades disponíveis
+- Suporte a execução contínua via `systemd` com configuração por `.env`
 
 ---
 
@@ -37,7 +35,7 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 |---------------------|---------------------------------------------------------------------------|
 | `!make mix1`        | Cria equipes usando os canais `[MIX 1]`                                   |
 | `!make mix2`        | Cria equipes usando os canais `[MIX 2]`                                   |
-| `!make update`      | Cria/atualiza os canais de voz padrão para MIX 1 e MIX 2                  |
+| `!make channels`    | Cria todos os canais necessários organizados na categoria `Counter-Strike 2` |
 | `!move mix1`        | Move todos os membros das equipes do MIX 1 de volta para o LOBBY          |
 | `!move mix2`        | Move todos os membros das equipes do MIX 2 de volta para o LOBBY          |
 | `!comandos`         | Exibe a lista de comandos disponíveis                                     |
@@ -46,23 +44,17 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 
 ## 🛠️ Requisitos
 
-- Python 3.8+
-- Bibliotecas Python:
-  - `discord.py`
-  - `python-dotenv`
+- Python 3.8 ou superior
 
-Instale todas com:
-
-```bash
-pip install -r requirements.txt
-```
+As dependências (`discord.py`, `python-dotenv`) são instaladas automaticamente pelo script `install.sh`.  
+**Você não precisa se preocupar com um `requirements.txt`.**
 
 ---
 
 ## 📁 Estrutura Recomendada no Discord
 
 ```
-Canais de voz:
+Categoria: Counter-Strike 2
 ├─ [MIX 1] - LOBBY
 ├─ [MIX 1] - EQUIPE 1
 ├─ [MIX 1] - EQUIPE 2
@@ -74,11 +66,17 @@ Canais de voz:
 
 ---
 
-## 🧠 Guia de Instalação Automática
+## 🧠 Instalação Automática
 
-### 1. Edite o `.env`
+### 1. Configurar o `.env`
 
-Abra e configure o arquivo `.env` com:
+Crie ou edite o arquivo `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Exemplo de conteúdo:
 
 ```env
 # Caminho do diretório do bot
@@ -91,15 +89,9 @@ BOT_SCRIPT=MakeTeam.py
 DISCORD_BOT_TOKEN=seu_token_aqui
 ```
 
-Você pode usar o `.env.example` como modelo:
-
-```bash
-cp .env.example .env
-```
-
 ---
 
-### 2. Execute o script de instalação
+### 2. Executar o instalador
 
 ```bash
 chmod +x install.sh
@@ -107,28 +99,36 @@ chmod +x install.sh
 ```
 
 Esse script:
-- Copia `maketeam.service` para o systemd
-- Ativa o serviço no boot
+
+- Instala as dependências necessárias com `pip`
+- Cria e habilita o serviço `maketeam.service` via systemd
 - Inicia o bot automaticamente
 
 ---
 
-### 3. Verificar status do serviço
+### 3. Verificar status do bot
 
 ```bash
 systemctl status maketeam
 ```
 
-Se estiver tudo certo, verá o bot como “ativo” e rodando.
-
 ---
 
-### 4. Logs do serviço
-
-Para ver os logs em tempo real:
+### 4. Ver logs do serviço
 
 ```bash
 journalctl -u maketeam -f
+```
+
+---
+
+## 🧹 Desinstalação
+
+Para remover o serviço e parar o bot:
+
+```bash
+chmod +x uninstall.sh
+./uninstall.sh
 ```
 
 ---
@@ -143,4 +143,5 @@ Gestor de Redes, Desenvolvedor de Bots e Apaixonado por CS
 
 ## ⚖️ Licença
 
-MakeTeam © 2025 - lgl5
+MakeTeam © 2025 - lgl5  
+Distribuído para fins educacionais e uso comunitário.

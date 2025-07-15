@@ -42,9 +42,6 @@ async def make(ctx, mix_type):
         voice_channel = discord.utils.get(ctx.guild.voice_channels, name='[MIX 2] - LOBBY')
         team_1_channel = discord.utils.get(ctx.guild.voice_channels, name='[MIX 2] - EQUIPE 1')
         team_2_channel = discord.utils.get(ctx.guild.voice_channels, name='[MIX 2] - EQUIPE 2')
-    elif mix_type == 'update':
-        await make_update(ctx)
-        return
     elif mix_type == 'channels':
         await make_canais(ctx)
         return
@@ -142,41 +139,25 @@ async def comandos(ctx):
     embed = discord.Embed(title='Comandos Disponíveis', description='Lista de comandos do bot', color=0x00ff00)
     embed.add_field(name='!make mix1', value='Cria equipes no canal [MIX 1] - LOBBY', inline=False)
     embed.add_field(name='!make mix2', value='Cria equipes no canal [MIX 2] - LOBBY', inline=False)
-    embed.add_field(name='!make update', value='Atualiza os nomes dos canais de voz', inline=False)
-    embed.add_field(name='!make channels', value='Cria os canais de voz se não existirem', inline=False)
+    embed.add_field(name='!make channels', value='Cria ou atualiza os canais de voz dentro da categoria CS2', inline=False)
     embed.add_field(name='!move mix1', value='Move todos para o lobby do MIX 1', inline=False)
     embed.add_field(name='!move mix2', value='Move todos para o lobby do MIX 2', inline=False)
-    embed.set_footer(text='MakeTeam v2.6.24 © 2023-2024 - by lgl5')
+    embed.set_footer(text='MakeTeam v3.0.0 © 2023-2025 - by lgl5')
     await ctx.send(embed=embed)
 
-# Cria canais de voz se não existirem
+# Comando único que cria a categoria e os canais necessários, renomeando os antigos se preciso
 @client.command()
 async def make_canais(ctx):
     guild = ctx.guild
-    channels = {
-        '[MIX 1] - LOBBY': None,
-        '[MIX 1] - EQUIPE 1': None,
-        '[MIX 1] - EQUIPE 2': None,
-        'FILA DE ESPERA': None,
-        '[MIX 2] - LOBBY': None,
-        '[MIX 2] - EQUIPE 1': None,
-        '[MIX 2] - EQUIPE 2': None
-    }
 
-    for channel_name in channels:
-        channel = discord.utils.get(guild.voice_channels, name=channel_name)
-        if not channel:
-            channels[channel_name] = await guild.create_voice_channel(channel_name)
-            await ctx.send(f'Canal de voz "{channel_name}" criado.')
-        else:
-            channels[channel_name] = channel
-            await ctx.send(f'Canal de voz "{channel_name}" já existe.')
+    # Verifica se a categoria "Counter-Strike 2" já existe. Caso não, cria.
+    category = discord.utils.get(guild.categories, name='Counter-Strike 2')
+    if not category:
+        category = await guild.create_category('Counter-Strike 2')
+        await ctx.send('Categoria "Counter-Strike 2" criada.')
 
-# Atualiza os nomes dos canais antigos para o novo padrão
-@client.command()
-async def make_update(ctx):
-    guild = ctx.guild
-    update_channels = {
+    # Mapeia nomes antigos para o novo padrão
+    canais_renomear = {
         'MIX 1': '[MIX 1] - LOBBY',
         'EQUIPE 1': '[MIX 1] - EQUIPE 1',
         'EQUIPE 2': '[MIX 1] - EQUIPE 2',
@@ -185,18 +166,14 @@ async def make_update(ctx):
         'TIME 2': '[MIX 2] - EQUIPE 2'
     }
 
-    for old_name, new_name in update_channels.items():
-        channel = discord.utils.get(guild.voice_channels, name=old_name)
-        if channel:
-            await channel.edit(name=new_name)
-            await ctx.send(f'Canal de voz "{old_name}" atualizado para "{new_name}".')
-        else:
-            await ctx.send(f'Canal de voz "{old_name}" não encontrado. Criando o canal "{new_name}".')
-            await guild.create_voice_channel(new_name)
-            await ctx.send(f'Canal de voz "{new_name}" criado.')
+    for antigo, novo in canais_renomear.items():
+        canal_antigo = discord.utils.get(guild.voice_channels, name=antigo)
+        if canal_antigo:
+            await canal_antigo.edit(name=novo, category=category)
+            await ctx.send(f'Canal "{antigo}" renomeado para "{novo}".')
 
-    # Garante que todos os canais necessários existam
-    canais_necessarios = {
+    # Lista de canais obrigatórios
+    canais_necessarios = [
         '[MIX 1] - LOBBY',
         '[MIX 1] - EQUIPE 1',
         '[MIX 1] - EQUIPE 2',
@@ -204,12 +181,14 @@ async def make_update(ctx):
         '[MIX 2] - LOBBY',
         '[MIX 2] - EQUIPE 1',
         '[MIX 2] - EQUIPE 2'
-    }
+    ]
 
-    for channel_name in canais_necessarios:
-        if not discord.utils.get(guild.voice_channels, name=channel_name):
-            await guild.create_voice_channel(channel_name)
-            await ctx.send(f'Canal de voz "{channel_name}" criado.')
+    # Verifica e cria os canais que ainda não existem
+    for nome in canais_necessarios:
+        existente = discord.utils.get(guild.voice_channels, name=nome)
+        if not existente:
+            await guild.create_voice_channel(nome, category=category)
+            await ctx.send(f'Canal de voz "{nome}" criado na categoria "Counter-Strike 2".')
 
 # Inicia o bot com o token do arquivo .env
 client.run(TOKEN)
