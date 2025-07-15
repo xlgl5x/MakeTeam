@@ -1,4 +1,4 @@
-### 🔄 Versão 2.0.0 - 2024-07-08
+### 🔄 Versão 2.6.24 - 2024-07-08
 
 #### 🚀 Funcionalidades adicionadas
 **Tipo:** Minor
@@ -12,6 +12,10 @@
 ---
 
 # MakeTeam Bot - CS2 Discord
+
+## 🔗 Adicionar o bot ao seu servidor
+[Clique aqui para convidar o bot](https://discord.com/oauth2/authorize?client_id=1085339903967121480&permissions=16788496&integration_type=0&scope=bot)
+
 
 Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, separando jogadores em equipes e gerenciando canais de voz.
 
