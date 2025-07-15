@@ -44,6 +44,11 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 | `!move mix2`        | Move todos os membros das equipes do MIX 2 de volta para o LOBBY          |
 | `!comandos`         | Exibe a lista de comandos disponíveis                                     |
 
+> ℹ️ Para que o sorteio funcione corretamente, os jogadores devem estar no canal de LOBBY correspondente:  
+> - `!make mix1` → jogadores devem estar no canal **[MIX 1] - LOBBY**  
+> - `!make mix2` → jogadores devem estar no canal **[MIX 2] - LOBBY**
+
+
 ---
 
 ## 🛠️ Requisitos
