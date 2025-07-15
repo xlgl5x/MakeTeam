@@ -10,6 +10,8 @@
 
 ---
 
+![Logo MakeTeam](./maketeam-logo.png)
+
 # MakeTeam Bot - CS2 Discord
 
 ## 🔗 Adicionar o bot ao seu servidor
