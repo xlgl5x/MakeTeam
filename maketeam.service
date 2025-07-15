@@ -1,0 +1,13 @@
+[Unit]
+Description=MakeTeam Bot - Discord CS2
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=${BOT_DIR}
+ExecStart=/usr/bin/python3 ${BOT_DIR}/${BOT_SCRIPT}
+Restart=always
+EnvironmentFile=-${BOT_DIR}/.env
+
+[Install]
+WantedBy=multi-user.target
