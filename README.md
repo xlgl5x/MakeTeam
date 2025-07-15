@@ -13,6 +13,8 @@
 # MakeTeam Bot - CS2 Discord
 
 ## 🔗 Adicionar o bot ao seu servidor
+> O MakeTeam atualmente está **hospedado e em funcionamento contínuo** no ambiente de produção (Raspberry Pi 4 + Debian 11) monitorado via Zabbix.
+
 [Clique aqui para convidar o bot](https://discord.com/oauth2/authorize?client_id=1085339903967121480&permissions=16788496&integration_type=0&scope=bot)
 
 Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, separando jogadores em equipes e gerenciando canais de voz com comandos simples e diretos.
@@ -138,12 +140,15 @@ chmod +x uninstall.sh
 ## 👨‍💻 Autor
 
 **Luiz Gustavo Lobo Simões**  
-Gestor de Redes, Eterno prata no CS e entusiasta no mundo dev 
+Gestor de Redes, Eterno prata no CS e entusiasta no mundo dev  
 🔗 [LinkedIn](https://www.linkedin.com/in/lgl5)
+
+> 💡 O código Python inicial do MakeTeam foi gerado com apoio do ChatGPT (OpenAI), e posteriormente adaptado, testado e integrado ao ambiente de produção por Luiz Gustavo.
+
 
 ---
 
 ## ⚖️ Licença
 
-MakeTeam © 2023-2025 - lgl5  
+MakeTeam © 2025 - lgl5  
 Distribuído para fins educacionais e uso comunitário.
