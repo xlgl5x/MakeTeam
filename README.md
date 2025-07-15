@@ -138,12 +138,12 @@ chmod +x uninstall.sh
 ## 👨‍💻 Autor
 
 **Luiz Gustavo Lobo Simões**  
-Gestor de Redes, Desenvolvedor de Bots e Apaixonado por CS  
+Gestor de Redes, Eterno prata no CS e entusiasta no mundo dev 
 🔗 [LinkedIn](https://www.linkedin.com/in/lgl5)
 
 ---
 
 ## ⚖️ Licença
 
-MakeTeam © 2025 - lgl5  
+MakeTeam © 2023-2025 - lgl5  
 Distribuído para fins educacionais e uso comunitário.
