@@ -166,6 +166,55 @@ async def make_canais(ctx):
         'TIME 2': '[MIX 2] - EQUIPE 2'
     }
 
+    # Renomeia canais antigos e move para a categoria correta
+    for antigo, novo in canais_renomear.items():
+        canal_antigo = discord.utils.get(guild.voice_channels, name=antigo)
+        if canal_antigo:
+            await canal_antigo.edit(name=novo, category=category)
+            await ctx.send(f'Canal "{antigo}" renomeado para "{novo}" e movido para a categoria "Counter-Strike 2".')
+
+    # Lista de canais obrigatórios
+    canais_necessarios = [
+        '[MIX 1] - LOBBY',
+        '[MIX 1] - EQUIPE 1',
+        '[MIX 1] - EQUIPE 2',
+        'FILA DE ESPERA',
+        '[MIX 2] - LOBBY',
+        '[MIX 2] - EQUIPE 1',
+        '[MIX 2] - EQUIPE 2'
+    ]
+
+    # Verifica se cada canal existe, e cria se não existir
+    for nome in canais_necessarios:
+        canal = discord.utils.get(guild.voice_channels, name=nome)
+        if canal:
+            # Move canal existente para a categoria correta, se necessário
+            if canal.category != category:
+                await canal.edit(category=category)
+                await ctx.send(f'Canal "{nome}" movido para a categoria "Counter-Strike 2".')
+        else:
+            # Cria canal se não existir
+            await guild.create_voice_channel(nome, category=category)
+            await ctx.send(f'Canal de voz "{nome}" criado na categoria "Counter-Strike 2".')
+
+    guild = ctx.guild
+
+    # Verifica se a categoria "Counter-Strike 2" já existe. Caso não, cria.
+    category = discord.utils.get(guild.categories, name='Counter-Strike 2')
+    if not category:
+        category = await guild.create_category('Counter-Strike 2')
+        await ctx.send('Categoria "Counter-Strike 2" criada.')
+
+    # Mapeia nomes antigos para o novo padrão
+    canais_renomear = {
+        'MIX 1': '[MIX 1] - LOBBY',
+        'EQUIPE 1': '[MIX 1] - EQUIPE 1',
+        'EQUIPE 2': '[MIX 1] - EQUIPE 2',
+        'MIX 2': '[MIX 2] - LOBBY',
+        'TIME 1': '[MIX 2] - EQUIPE 1',
+        'TIME 2': '[MIX 2] - EQUIPE 2'
+    }
+
     for antigo, novo in canais_renomear.items():
         canal_antigo = discord.utils.get(guild.voice_channels, name=antigo)
         if canal_antigo:
