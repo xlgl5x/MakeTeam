@@ -191,7 +191,9 @@ async def comandos(ctx):
         name="!make mix2", value="Cria equipes no canal [MIX 2] - LOBBY", inline=False
     )
     embed.add_field(
-        name="!make channels", value="Cria ou atualiza os canais de voz dentro da categoria CS2 - Somente Admins", inline=False,
+        name="!make channels",
+        value="Cria ou atualiza os canais de voz dentro da categoria CS2 - Somente Admins",
+        inline=False,
     )
     embed.add_field(
         name="!move mix1", value="Move todos para o lobby do MIX 1", inline=False
