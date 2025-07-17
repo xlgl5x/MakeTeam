@@ -40,6 +40,10 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 > - `!make mix1` → jogadores devem estar no canal **[MIX 1] - LOBBY**  
 > - `!make mix2` → jogadores devem estar no canal **[MIX 2] - LOBBY**
 
+> ℹ️ Comandos que só podem ser executados por Administradores:
+> - `!make channels`;
+> - `!remove channels`
+
 
 ---
 

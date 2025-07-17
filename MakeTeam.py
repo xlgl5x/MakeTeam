@@ -206,7 +206,7 @@ async def comandos(ctx):
         value='Remove os canais e a categoria "Counter-Strike 2" - Somente Admins',
         inline=False,
     )
-    embed.set_footer(text="MakeTeam v3.0.0 © 2023-2025 - by lgl5")
+    embed.set_footer(text="MakeTeam v3.1.0 © 2023-2025 - by lgl5")
     await ctx.send(embed=embed)
 
 
