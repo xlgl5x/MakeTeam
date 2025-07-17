@@ -1,4 +1,4 @@
-### 🔄 Versão 3.0.0 - 2024-07-15
+### 🔄 Versão 3.0.1 - 2024-07-15
 
 ![Logo MakeTeam](./maketeam-logo.png)
 
@@ -18,6 +18,7 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 - Sorteio automático de equipes (até 5x5 com fila de espera);
 - Movimentação automática entre canais de voz;
 - Criação e estruturação de canais organizados em uma categoria específica;
+- Cria canal de texto para o usuário centralizar os comandos num unico local;
 - Comando `!comandos` integrado para exibir as funcionalidades disponíveis;
 - Suporte a execução contínua via `systemd` com configuração por `.env`.
 

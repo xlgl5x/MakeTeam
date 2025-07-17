@@ -190,5 +190,18 @@ async def make_canais(ctx):
             await guild.create_voice_channel(nome, category=category)
             await ctx.send(f'Canal de voz "{nome}" criado na categoria "Counter-Strike 2".')
 
+    # Verifica e cria o canal de texto para comandos do bot
+    canal_texto_nome = 'maketeam-bot'
+    canal_texto = discord.utils.get(guild.text_channels, name=canal_texto_nome)
+    if not canal_texto:
+        canal_texto = await guild.create_text_channel(canal_texto_nome, category=category)
+        await ctx.send(f'Canal de texto "{canal_texto.mention}" criado para os comandos do bot.')
+        await canal_texto.send(
+            f'🧠 Este canal foi criado para centralizar os comandos do bot MakeTeam.\n'
+            f'Digite os comandos aqui, como por exemplo: `!make mix1`, `!move mix2` etc.'
+        )
+    else:
+        await ctx.send(f'Canal de texto "{canal_texto.mention}" já existe.')
+
 # Inicia o bot com o token do arquivo .env
 client.run(TOKEN)
