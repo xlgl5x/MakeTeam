@@ -191,9 +191,7 @@ async def comandos(ctx):
         name="!make mix2", value="Cria equipes no canal [MIX 2] - LOBBY", inline=False
     )
     embed.add_field(
-        name="!make channels",
-        value="Cria ou atualiza os canais de voz dentro da categoria CS2",
-        inline=False,
+        name="!make channels", value="Cria ou atualiza os canais de voz dentro da categoria CS2 - Somente Admins", inline=False,
     )
     embed.add_field(
         name="!move mix1", value="Move todos para o lobby do MIX 1", inline=False
@@ -203,7 +201,7 @@ async def comandos(ctx):
     )
     embed.add_field(
         name="!remove channels",
-        value='Remove os canais e a categoria "Counter-Strike 2"',
+        value='Remove os canais e a categoria "Counter-Strike 2" - Somente Admins',
         inline=False,
     )
     embed.set_footer(text="MakeTeam v3.0.0 © 2023-2025 - by lgl5")
