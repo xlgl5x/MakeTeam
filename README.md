@@ -1,4 +1,4 @@
-### 🔄 Versão 3.0.1 - 2024-07-15
+### 🔄 Versão 3.1.0 - 2024-07-15
 
 ![Logo MakeTeam](./MakeTeam-Logo-Final.png)
 
@@ -19,7 +19,8 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 - Movimentação automática entre canais de voz;
 - Criação e estruturação de canais organizados em uma categoria específica;
 - Comando `!comandos` integrado para exibir as funcionalidades disponíveis;
-- Suporte a execução contínua via `systemd` com configuração por `.env`.
+- Suporte a execução contínua via `systemd` com configuração por `.env`;
+- Comando `!remove channels` para remover os canais e categoria criada.
 
 ---
 
@@ -30,6 +31,7 @@ Bot para Discord que organiza automaticamente partidas de **Counter-Strike 2**, 
 | `!make mix1`        | Cria equipes usando os canais `[MIX 1]`                                   |
 | `!make mix2`        | Cria equipes usando os canais `[MIX 2]`                                   |
 | `!make channels`    | Cria todos os canais necessários organizados na categoria `Counter-Strike 2` |
+| `!remove channels`  | Remove os canais criados                                                  |
 | `!move mix1`        | Move todos os membros das equipes do MIX 1 de volta para o LOBBY          |
 | `!move mix2`        | Move todos os membros das equipes do MIX 2 de volta para o LOBBY          |
 | `!comandos`         | Exibe a lista de comandos disponíveis                                     |
