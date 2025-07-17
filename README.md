@@ -1,6 +1,6 @@
 ### 🔄 Versão 3.0.1 - 2024-07-15
 
-![Logo MakeTeam](./maketeam-logo.png)
+![Logo MakeTeam](./MakeTeam-Logo-Final.png)
 
 # MakeTeam Bot - CS2 Discord
 
